@@ -68,9 +68,16 @@ public class MainPage extends Activity {
 
 		setContentView(R.layout.activity_main_page);
 
+		/*
 		String osVersion = Build.VERSION.RELEASE;
 		if ((osVersion.charAt(0)) == '4' && (osVersion.charAt(1) == '.')
 				&& (osVersion.charAt(2) >= '3')) {
+		*/
+		// Using something such as OS Version worked fine in the past but for something such as 
+		// Android 'L' we should use SDK version or the app will not open on the phone since 
+		// it will go to the else statement
+		int sdkVersion = android.os.Build.VERSION.SDK_INT; // Gets the SDK in integer format for easy comparison
+        	if(sdkVersion >= 18) { // If it is Android SDK 18 (Android 4.3) or greater
 
 		} else {
 			AlertDialog.Builder dialog = new AlertDialog.Builder(MainPage.this);
